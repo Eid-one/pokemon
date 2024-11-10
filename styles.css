@@ -137,3 +137,111 @@ input {
   border-radius: 12px;
   background: darkblue;
 }
+
+:root {
+  --normal: rgb(168, 168, 153);
+  --fighting: rgb(168, 76, 61);
+  --flying: rgb(135, 181, 229);
+  --poison: rgb(134, 74, 184);
+  --ground: rgb(149, 104, 51);
+  --rock: rgb(168, 153, 91);
+  --bug: rgb(131, 173, 37);
+  --ghost: rgb(99, 60, 100);
+  --steel: rgb(153, 153, 168);
+  --fire: rgb(229, 59, 25);
+  --water: rgb(39, 139, 204);
+  --grass: rgb(88, 169, 81);
+  --electric: rgb(229, 198, 0);
+  --psychic: rgb(229, 89, 115);
+  --ice: rgb(104, 186, 172);
+  --dragon: rgb(77, 100, 171);
+  --dark: rgb(70, 62, 62);
+  --fairy: rgb(212, 128, 207);
+
+  --black: rgb(0, 0, 0);
+  --blue-light: rgb(135, 206, 250);
+  --green: rgb(80, 199, 120);
+  --grey-light: rgb(239, 237, 233);
+  --red: rgb(212, 4, 37);
+  --teal: rgb(18, 71, 88);
+  --teal-dark: rgb(11, 56, 70);
+  --white: rgb(255, 255, 255);
+  --yellow: rgb(246, 194, 68);
+
+  --background: rgb(252, 252, 252);
+  --border: rgb(219, 217, 215);
+  --hover-blue: rgb(40, 123, 237);
+  --hover-orange: rgb(255, 146, 72);
+  --hover-white: rgb(240, 240, 240);
+  --hover-yellow: rgb(248, 206, 105);
+
+  --youtube: rgb(255, 0, 0);
+  --instagram: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  --facebook: rgb(58, 89, 151);
+}
+
+/* .${completePokedex[i].type} {
+	background: var(--${completePokedex[i].type});
+} */
+
+.fighting {
+  background: var(--fighting);
+}
+.normal {
+  background: var(--normal);
+}
+.flying {
+  background: var(--flying);
+}
+.poison {
+  background: var(--poison);
+}
+.ground {
+  background: var(--ground);
+}
+.rock {
+  background: var(--rock);
+}
+.bug {
+  background: var(--bug);
+}
+.ghost {
+  background: var(--ghost);
+}
+.steel {
+  background: var(--steel);
+}
+.fire {
+  background: var(--fire);
+}
+.water {
+  background: var(--water);
+}
+.grass {
+  background: var(--grass);
+}
+.electric {
+  background: var(--electric);
+}
+.psychic {
+  background: var(--psychic);
+}
+.ice {
+  background: var(--ice);
+}
+.dragon {
+  background: var(--dragon);
+}
+.dark {
+  background: var(--dark);
+}
+.fairy {
+  background: var(--fairy);
+}

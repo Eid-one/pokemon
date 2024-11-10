@@ -5,18 +5,32 @@ let searchBar = document.getElementById("searchBar");
 function init() {
   fetchData();
 }
-async function fetchData() {
-  let respons = await fetch(urlData);
-  let data = await respons.json();
-  let pokename = data.types.map((type) => {
-    typename: type;
-  });
-  let pokoresult = await data.results.map((result) => {
-    name: result;
-  });
 
-  console.log(pokoresult);
+let pokemonUrl = `https://pokeapi.co/api/v2/pokemon?limit=100`;
+
+async function fetchData() {
+  let response = await fetch(pokemonUrl);
+  let data = await response.json();
+  console.log(data.results);
+
+  let pokemon = data.results.map((result, index) => ({
+    Name: result.name,
+    Id: index + 1,
+    Image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+      index + 1
+    }.png`,
+  }));
+  console.log(pokemon);
+
+  displayPokemon(pokemon);
 }
+
+let displayPokemon = (pokemon) => {
+  let contentHTML = pokemon.map((pokeman) => HTMLRetern(pokeman)).join("");
+
+  pokemonContent.innerHTML = contentHTML;
+};
+
 /* 
 function displayPokemon(allData) {
   let contenString = allData.map((pokeman) => HTMLRetern(pokeman)).join("");
