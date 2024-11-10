@@ -1,0 +1,139 @@
+body {
+  background: #05171e;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: white;
+
+  font-size: 24px;
+}
+
+header {
+  background-color: #ef5350;
+  color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.heareContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  width: 100%;
+}
+
+#headerImg {
+  height: 180px;
+}
+
+input {
+  padding: 12px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
+#pokemon {
+  padding-inline-start: 0;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background: rgb(38, 146, 108);
+  flex-direction: column;
+  border-radius: 18px;
+  cursor: pointer;
+}
+
+#imgCard {
+  width: 280px;
+  height: 180;
+}
+.CardInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #082029;
+  color: #fff;
+  border-radius: 7px;
+  border-top: #fff solid 8px;
+  border-bottom: #fff solid 8px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #05171e url(img/loading2.gif) no-repeat center center;
+  z-index: 1000;
+  background-size: 25%;
+}
+
+.loading::after {
+  content: " ";
+  width: 20px;
+  animation: loading 5s linear infinite;
+  background-size: 10%;
+  border-radius: 50%;
+}
+
+.loading-last {
+  /* Corrected class name */
+  z-index: 0;
+  visibility: hidden;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.grass,
+.poison {
+  background: darkred;
+}
+
+.cardTwo {
+  display: flex;
+  justify-content: center;
+  background: #fffffff3;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: #05171e;
+}
+
+.imgtwo {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  background: darkblue;
+}
