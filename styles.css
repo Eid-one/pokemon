@@ -14,10 +14,10 @@ body {
 
 header {
   background-color: #ef5350;
-  color: whitesmoke;
+  /* color: whitesmoke;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
 }
 .heareContainer {
   display: flex;
@@ -119,23 +119,46 @@ input {
 }
 
 .cardTwo {
-  display: flex;
-  justify-content: center;
-  background: #fffffff3;
-  width: 100%;
-  height: 100vh;
-  z-index: 0;
+  background: #d6249f;
   position: fixed;
   top: 0;
   left: 0;
-  color: #05171e;
+  right: 0;
+  bottom: 0;
+}
+
+.infoCard {
+  width: 100%;
+  background-color: #082029;
+  color: #fff;
+  border-radius: 12px;
+  padding-left: 15px;
+  min-height: 100vh;
 }
 
 .imgtwo {
   width: 120px;
-  height: 120px;
-  border-radius: 12px;
-  background: darkblue;
+}
+
+.containerPopup {
+  width: 600px;
+  height: 600px;
+  border-radius: 18px;
+  background: #d6249f;
+  cursor: pointer;
+}
+.close {
+  display: flex;
+  justify-content: center;
+  background: #fd5949;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10 0 10px 0;
+  width: 50%;
+  cursor: pointer;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
 }
 
 :root {

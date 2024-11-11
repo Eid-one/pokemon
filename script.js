@@ -37,29 +37,6 @@ async function selectPokemon(id) {
   displaypopop(responseData);
 }
 
-/* function displaypopop(pokeman) {
-  const type = pokeman.types.map((type) => type.type.name).join(", ");
-  const image = pokeman.sprites.other["official-artwork"].front_default;
-  const baseStatEffort = pokeman.stats[0].base_stat;
-
-  let contentHTML = templateHTM(pokeman, type, baseStatEffort);
-
-  pokemonContent.innerHTML = contentHTML + pokemonContent.innerHTML;
-}
-
-function templateHTM(pokeman) {
-  const image = pokeman.sprites.other["official-artwork"].front_default;
-  return `
-    <div class="cardTwo">
-      <p onclick="closePopup()">Close</p>
-      <br>
-      <img id="imgtwo" src="${image}" alt="${pokeman.name}">
-      <p>${pokeman.name} ${pokeman.id}  <u>${type}</u></p>
-      <p>Effort: ${baseStatEffort}</p>
-    </div>
-  `;
-} */
-
 function displaypopop(pokeman) {
   const type = pokeman.types.map((type) => type.type.name).join(", ");
   const image = pokeman.sprites.other["official-artwork"].front_default;
@@ -68,19 +45,6 @@ function displaypopop(pokeman) {
   let contentHTML = templateHTM(pokeman, type, baseStatEffort);
 
   pokemonContent.innerHTML = contentHTML + pokemonContent.innerHTML;
-}
-
-function templateHTM(pokeman, type, baseStatEffort) {
-  const image = pokeman.sprites.other["official-artwork"].front_default;
-  return `
-      <div class="cardTwo">
-        <p onclick="closePopup()">Close</p>
-        <br>
-        <img id="imgtwo" src="${image}" alt="${pokeman.name}">
-        <p>${pokeman.name} ${pokeman.id}  <u>${type}</u></p>
-        <p>Effort: ${baseStatEffort}</p>
-      </div>
-    `;
 }
 
 // Search Bar Function

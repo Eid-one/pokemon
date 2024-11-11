@@ -15,11 +15,18 @@ function templateHTM(pokeman, type, baseStatEffort) {
   const image = pokeman.sprites.other["official-artwork"].front_default;
   return `
       <div class="cardTwo">
-        <p onclick="closePopup()">Close</p>
+        <p onclick="closePopup()" class="close">Close</p>
         <br>
+        <div class="containerPopup">
         <img id="imgtwo" src="${image}" alt="${pokeman.name}">
-        <p>${pokeman.name} ${pokeman.id}  <u>${type}</u></p>
-        <p>Effort: ${baseStatEffort}</p>
+        <div  class="infoCard">
+        <p>  <small>${pokeman.id}</small>  </p>
+
+        <div><small> Name:${pokeman.name} </small></div>
+        <p> <i> Type:${type}</i></p>
+<p>Effort: ${baseStatEffort}</p>
+         </div>
+         </div>
       </div>
     `;
 }
