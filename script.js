@@ -1,13 +1,15 @@
 let urlData = `https://pokeapi.co/api/v2/pokemon/ditto`;
 let pokemonContent = document.getElementById("pokemon");
 let searchBar = document.getElementById("searchBar");
-let pureData = []; // To store fetched Pokémon data
+
+let missingElemen = document.getElementById("noFound");
+let pureData = [];
 
 function init() {
   fetchData();
 }
 
-let pokemonUrl = `https://pokeapi.co/api/v2/pokemon?limit=10`;
+let pokemonUrl = `https://pokeapi.co/api/v2/pokemon?limit=100`;
 
 async function fetchData() {
   let response = await fetch(pokemonUrl);
@@ -21,7 +23,7 @@ async function fetchData() {
       index + 1
     }.png`,
   }));
-  pureData = pokemon; // Store data for search functionality
+  pureData = pokemon;
   displayPokemon(pokemon);
 }
 
@@ -42,12 +44,16 @@ function displaypopop(pokeman) {
   const image = pokeman.sprites.other["official-artwork"].front_default;
   const baseStatEffort = pokeman.stats[0].base_stat;
 
-  let contentHTML = templateHTM(pokeman, type, baseStatEffort);
-
+  let contentHTML = templateHTM(
+    pokeman,
+    type,
+    baseStatEffort,
+    pokeman.height,
+    pokeman.weight
+  );
   pokemonContent.innerHTML = contentHTML + pokemonContent.innerHTML;
 }
 
-// Search Bar Function
 searchBar.addEventListener("keyup", (e) => {
   let searchingBar = e.target.value;
   const filterSearch = pureData.filter((pokemon) => {
@@ -56,11 +62,20 @@ searchBar.addEventListener("keyup", (e) => {
       pokemon.Id.toString().includes(searchingBar.toLowerCase())
     );
   });
+
+  if (filterSearch.length === 0) {
+    console.log("Here is Nothing Found...");
+    missingElemen.innerHTML = " Sorry Not Foundin Data..";
+  }
+
   displayPokemon(filterSearch);
 });
 
 function closePopup() {
-  document.querySelector(".cardTwo").remove();
+  const popup = document.querySelector(".cardTwo");
+  if (popup) {
+    popup.remove();
+  }
 }
 
 init();

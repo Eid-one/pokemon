@@ -11,22 +11,21 @@ function HTMLRetern(pokeman) {
           `;
 }
 
-function templateHTM(pokeman, type, baseStatEffort) {
+function templateHTM(pokeman, type, baseStatEffort, height, weight) {
   const image = pokeman.sprites.other["official-artwork"].front_default;
   return `
-      <div class="cardTwo">
-        <p onclick="closePopup()" class="close">Close</p>
-        <br>
-        <div class="containerPopup">
-        <img id="imgtwo" src="${image}" alt="${pokeman.name}">
-        <div  class="infoCard">
-        <p>  <small>${pokeman.id}</small>  </p>
-
-        <div><small> Name:${pokeman.name} </small></div>
-        <p> <i> Type:${type}</i></p>
-<p>Effort: ${baseStatEffort}</p>
-         </div>
-         </div>
-      </div>
-    `;
+        <div class="cardTwo">
+          <p onclick="closePopup()"class="close">Close</p>
+          <br>
+          <div class="InfoCard">
+            <img id="imgtwo" src="${image}" alt="${pokeman.name}">
+            <h3><small>#${pokeman.id}</small></h3>
+            <p><small>Name:</small> ${pokeman.name}</p>
+            <p><small>Type:</small> ${type}</p>
+            <p><small>Height:</small>${height} |H</p>
+            <p><small>Weight:</small> ${weight} |g</p>
+            <p><small>Effort: </small>${baseStatEffort}</p>
+          </div>
+        </div>
+      `;
 }
