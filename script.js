@@ -43,11 +43,22 @@ function displaypopop(pokeman) {
   const type = pokeman.types.map((type) => type.type.name).join(", ");
   const image = pokeman.sprites.other["official-artwork"].front_default;
   const baseStatEffort = pokeman.stats[0].base_stat;
+  const baseStatEffort1 = pokeman.stats[1].base_stat;
+  const baseStatEffort2 = pokeman.stats[2].base_stat;
+  const baseStatEffort3 = pokeman.stats[3].base_stat;
+  const baseStatEffort4 = pokeman.stats[4].base_stat;
+  const baseStatEffort5 = pokeman.stats[5].base_stat;
 
   let contentHTML = templateHTM(
     pokeman,
     type,
     baseStatEffort,
+    baseStatEffort1,
+    baseStatEffort2,
+    baseStatEffort3,
+    baseStatEffort4,
+    baseStatEffort4,
+
     pokeman.height,
     pokeman.weight
   );
@@ -65,7 +76,7 @@ searchBar.addEventListener("keyup", (e) => {
 
   if (filterSearch.length === 0) {
     console.log("Here is Nothing Found...");
-    missingElemen.innerHTML = " Sorry Not Foundin Data..";
+    missingElemen.innerHTML = `<div id="noData"> 404 not found no data</div>`;
   }
 
   displayPokemon(filterSearch);
