@@ -22,7 +22,7 @@ function returnHTMLCard(pokeman) {
         pokeman.Types
       )}; id="cardColors">
       <img class="imgWidth" src="${pokeman.Image}">
-         <p>TYPE: ${pokeman.Types.join(", ")}</p>
+         <p class="typeColor">${pokeman.Types}</p>
         </div>
       </div>
       `;
@@ -38,11 +38,15 @@ function contentHTMLPopup(pokeman) {
 
   return `
     <div class="popupCard">
-      <b onclick="closePopup()" class="btnX">Close</b>
+      
       <div class="popupInner">
         <div class="cardIdName">
-          <b>#${pokeman.id}</b>
-          <p><strong>${pokeman.name}</strong></p>
+        <div class="innCard">
+        <b>#${pokeman.id}</b>
+        <b><strong>${pokeman.name}</strong></b>
+          </div>
+
+          <b onclick="closePopup()" class="btnX">Close</b>
         </div>
         <div class="secondCard">
           <img class="imgWidth" src="${image}" alt="${pokeman.name}">
@@ -50,21 +54,26 @@ function contentHTMLPopup(pokeman) {
             <h1 onclick="slideLeft()"> <img class="leftArrow" src="img/left-arrow.png" alt=""></h1>
             <h1 onclick="slideRight()"> <img   class="rightArrow"src="img/next.png" alt=""> </h1>
           </div>
-          <p><strong>Height:</strong> ${pokeman.height}</p>
-          <p><strong>Weight:</strong> ${pokeman.weight}</p>
-          <p><strong>Type:</strong> ${type}</p>
+          <div class="infoCard">
+          <p class="pCard1"><strong>Height:</strong> ${pokeman.height}</p>
+          <p class="pCard2"><strong>Weight:</strong> ${pokeman.weight}</p>
+          <p class="pCard3"><strong>Type:</strong> ${type}</p>
+          
+          </div>
+          <div class="prograssCard">
           <p><strong>Stats:</strong></p>
-          <ul>
+          <ulclass="listClass" >
             ${stats
               .map(
                 (stat) => `
-                <li class="listClass">
+                <li >
                    <label for="${stat.statName}"> ${stat.statName}:</label> 
-                  <progress id="${stat.statName}" value="${stat.value}" max="200"></progress>
+                  <progress id="${stat.statName}" value="${stat.value}" max="100" class="texts"></progress>
                 </li>`
               )
               .join("")}
           </ul>
+          </div>
         </div>
       </div>
     </div>

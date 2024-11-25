@@ -12,6 +12,9 @@ body {
 header {
   background: #ef5350;
 }
+#logo {
+  height: 44px;
+}
 
 #pokemonId {
   padding-inline-start: 0;
@@ -46,16 +49,18 @@ header {
   border-radius: 4px;
 }
 .btnX {
-  width: 80%;
-  display: flex;
-  justify-content: end;
+  width: fit-content;
+
   cursor: pointer;
-  background: #ee5a57;
+  background: transparent;
   color: aliceblue;
+  padding: 8px;
+}
+.btnX:hover:hover {
+  background: #2a9d8f;
+  color: #05171e;
 }
 .cardIdName {
-  display: flex;
-  justify-content: center;
   background-color: #05171e;
   color: aliceblue;
   font-size: 18px;
@@ -64,11 +69,19 @@ header {
   margin: 0 auto;
   border-radius: 7px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.btnX:hover:hover {
-  background: transparent;
-  color: #05171e;
+p {
+  margin-bottom: 0;
 }
+.innCard {
+  display: flex;
+  justify-content: start;
+  gap: 50px;
+}
+
 .buttons,
 button {
   display: flex;
@@ -111,12 +124,16 @@ button {
   width: 50%;
   margin: 0 auto;
   border-radius: 8px;
+  height: 600px;
 }
 .listClass {
   list-style: none;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+p {
+  margin-bottom: 0;
 }
 
 @media (max-width: 600px) {
@@ -139,6 +156,10 @@ button {
 .imgWidth {
   width: 150px;
 }
+.imgWidth:hover {
+  background: hwb(197 2% 88% / 0.855);
+  border-radius: 12px;
+}
 #noData {
   text-align: center;
   font-size: 28;
@@ -147,7 +168,46 @@ button {
   color: white;
   font-size: 24px;
 }
+.typeColor {
+  background: #ffb703;
+  width: fit-content;
+  padding: 2px 5px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-family: monospace;
+}
+.infoCard {
+  width: 100%;
+  padding-left: 12px;
+}
+.pCard1 {
+  display: flex;
+  justify-content: space-around;
+}
 
+.pCard2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pCard3 {
+  display: flex;
+  justify-content: space-around;
+}
+.prograssCard {
+  background: #2a9d8f;
+  width: 100%;
+  list-style: none;
+  padding-left: 10px;
+  padding-bottom: 12px;
+  border-radius: 8px;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 38px;
+}
 #pokomenContent {
   margin-top: 15px;
   display: flex;
