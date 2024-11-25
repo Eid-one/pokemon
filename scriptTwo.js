@@ -1,5 +1,3 @@
-/// Loading Function
-
 let windowsTes = window.addEventListener("load", () => {
   setTimeout(() => {
     const loader = document.querySelector(".loading");
@@ -7,5 +5,5 @@ let windowsTes = window.addEventListener("load", () => {
     loader.addEventListener("animationend", () => {
       document.body.removeChild(loader);
     });
-  }, 2000);
+  }, 4000);
 });

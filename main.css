@@ -1,0 +1,202 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #ef5350;
+  color: white;
+  width: 100%;
+  min-height: 100vh;
+}
+header {
+  background: #ef5350;
+}
+
+#pokemonId {
+  padding-inline-start: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.pokemon-card {
+  align-items: center;
+  max-width: 250px;
+  border-radius: 5px;
+  padding: 18px;
+  margin-bottom: 18px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#idname {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #05171e;
+  color: aliceblue;
+  font-size: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+  border-radius: 4px;
+}
+.btnX {
+  width: 80%;
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+  background: #ee5a57;
+  color: aliceblue;
+}
+.cardIdName {
+  display: flex;
+  justify-content: center;
+  background-color: #05171e;
+  color: aliceblue;
+  font-size: 18px;
+  gap: 35px;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.btnX:hover:hover {
+  background: transparent;
+  color: #05171e;
+}
+.buttons,
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+  border: none;
+  margin-bottom: 12px;
+  padding: 0 8px;
+  background: rgb(11, 53, 68);
+  cursor: pointer;
+  color: white;
+  border-radius: 3px;
+}
+.h1lsides {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: #05171e;
+  color: white;
+}
+.leftArrow,
+.rightArrow {
+  width: 24px;
+  color: aliceblue;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.secondCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #082029;
+  color: aliceblue;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+.listClass {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .secondCard {
+    width: auto;
+    border-radius: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cardIdName {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 2px;
+  }
+}
+
+.imgWidth {
+  width: 150px;
+}
+#noData {
+  text-align: center;
+  font-size: 28;
+}
+#cardColors {
+  color: white;
+  font-size: 24px;
+}
+
+#pokomenContent {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.popupCard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ef535097;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/*  Loading Stying */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #05171e url(img/loading2.gif) no-repeat center center;
+  z-index: 1000;
+  background-size: 25%;
+}
+
+.loading::after {
+  content: " ";
+  width: 20px;
+  animation: loading 5s linear infinite;
+  background-size: 10%;
+  border-radius: 50%;
+}
+
+.loading-last {
+  /* Corrected class name */
+  z-index: 0;
+  visibility: hidden;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(1turn);
+  }
+}
