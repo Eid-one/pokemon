@@ -21,7 +21,7 @@ function returnHTMLCard(pokeman) {
       <div class="pokemon-card" style="background-color: ${getBackgroundColor(
         pokeman.Types
       )}; id="cardColors">
-      <img class="imgWidth" src="${pokeman.Image}">
+      <img class="imgcardOne bounce" src="${pokeman.Image}">
          <p class="typeColor">${pokeman.Types}</p>
         </div>
       </div>
@@ -49,7 +49,7 @@ function contentHTMLPopup(pokeman) {
           <b onclick="closePopup()" class="btnX">Close</b>
         </div>
         <div class="secondCard">
-          <img class="imgWidth" src="${image}" alt="${pokeman.name}">
+          <img class="imgWidth bounce" src="${image}" alt="${pokeman.name}">
           <div class="h1lsides">
             <h1 onclick="slideLeft()"> <img class="leftArrow" src="img/left-arrow.png" alt=""></h1>
             <h1 onclick="slideRight()"> <img   class="rightArrow"src="img/next.png" alt=""> </h1>

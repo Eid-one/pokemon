@@ -152,14 +152,46 @@ p {
     border-radius: 2px;
   }
 }
+.imgcardOne {
+  height: 200px;
+  border-radius: 8px;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
 
 .imgWidth {
-  width: 150px;
+  width: 250px;
+
+  border-radius: 8px;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
 }
-.imgWidth:hover {
+/* .imgWidth:hover {
   background: hwb(197 2% 88% / 0.855);
   border-radius: 12px;
 }
+ */
+
+.bounce:hover {
+  width: 200px;
+  background: #082029;
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 #noData {
   text-align: center;
   font-size: 28;
