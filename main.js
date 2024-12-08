@@ -1,8 +1,15 @@
-let url = `https://pokeapi.co/api/v2/pokemon?limit=100`;
+let maxmalPokemon = `https://pokeapi.co/api/v2/pokemon?limit=200`;
+
+let url = `https://pokeapi.co/api/v2/pokemon?limit=18`;
 let pokemonContent = document.getElementById("pokomenContent");
 let searchBar = document.getElementById("searchBar");
 let missingElemen = document.getElementById("noFound");
+let loadMore = document.getElementById("moreLoading");
 let pureData = [];
+let offset = 18;
+const limit = 100;
+let currentPokemon = 1;
+const maxPokemonId = 1400;
 
 function init() {
   dataFetch();
@@ -52,7 +59,16 @@ let displayPokos = (pokeman) => {
     .join("");
 };
 
-let currentPokemon = 1;
+function loadingMore() {
+  loadMore.addEventListener("click", async () => {
+    offset += limit;
+    url = maxmalPokemon;
+    await dataFetch();
+    if (limit == 100) {
+      loadMore.style.display = "none";
+    }
+  });
+}
 
 async function selectCard(id) {
   try {
@@ -70,9 +86,9 @@ async function selectCard(id) {
 let displayPopup = (pokeman) => {
   const type = pokeman.types.map((type) => type.type.name).join(", ");
   const image = pokeman.sprites.other["official-artwork"].front_default;
-  const stats = pokeman.stats.map((stat) => ({
-    statName: stat.stat.name,
-    value: stat.base_stat,
+  const statData = pokeman.stats.map((stattype) => ({
+    statName: stattype.stat.name,
+    value: stattype.base_stat,
   }));
 
   const contentPopup = contentHTMLPopup(pokeman);
@@ -85,8 +101,6 @@ let displayPopup = (pokeman) => {
   }
 };
 
-const maxPokemonId = 1010;
-
 function slideLeft() {
   currentPokemon = currentPokemon > 1 ? currentPokemon - 1 : maxPokemonId;
   selectCard(currentPokemon);
@@ -98,8 +112,8 @@ function slideRight() {
 }
 
 let closePopup = () => {
-  const popup = document.querySelector(".popupCard");
-  if (popup) popup.remove();
+  const popupCard = document.querySelector(".popupCard");
+  if (popupCard) popupCard.remove();
 };
 
 searchBar.addEventListener("keyup", (e) => {

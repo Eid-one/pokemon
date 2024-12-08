@@ -12,70 +12,90 @@ function returnHTMLCard(pokeman) {
   };
 
   return `
-      
-    <div onclick="selectCard(${pokeman.Id})">
-    <div id="idname"> 
-      <p>#${pokeman.Id}</p>
-       <p> ${pokeman.Name}</p>  
-      </div>
-      <div class="pokemon-card" style="background-color: ${getBackgroundColor(
-        pokeman.Types
-      )}; id="cardColors">
-      <img class="imgcardOne bounce" src="${pokeman.Image}">
-         <p class="typeColor">${pokeman.Types}</p>
-        </div>
-      </div>
-      `;
+    <div onclick="selectCard(${pokeman.Id})"">
+            <div id="idname"> 
+              <p>#${pokeman.Id}</p>
+              <p>${pokeman.Name}</p>  
+            </div>
+            <div 
+              class="pokemon-card" 
+              style="background-color: ${getBackgroundColor(pokeman.Types)};"
+              id="cardColors"> <img class="imgcardOne bounce" src="${
+                pokeman.Image
+              }" alt="${pokeman.Name}">
+              <p class="typeColor">${pokeman.Types}</p>
+            </div>
+          </div>
+        `;
 }
 
-function contentHTMLPopup(pokeman) {
+function contentHTMLPopup(pokeman, stattype) {
   const type = pokeman.types.map((type) => type.type.name).join(", ");
   const image = pokeman.sprites.other["official-artwork"].front_default;
-  let stats = pokeman.stats.map((stat) => ({
-    statName: stat.stat.name,
-    value: stat.base_stat,
+  let statData = pokeman.stats.map((stattype) => ({
+    statName: stattype.stat.name,
+    value: stattype.base_stat,
   }));
 
-  return `
-    <div class="popupCard">
-      
-      <div class="popupInner">
-        <div class="cardIdName">
-        <div class="innCard">
-        <b>#${pokeman.id}</b>
-        <b><strong>${pokeman.name}</strong></b>
-          </div>
+  return ` 
+  
+           <div class="popupCard">
 
-          <b onclick="closePopup()" class="btnX">Close</b>
-        </div>
-        <div class="secondCard">
-          <img class="imgWidth bounce" src="${image}" alt="${pokeman.name}">
-          <div class="h1lsides">
-            <h1 onclick="slideLeft()"> <img class="leftArrow" src="img/left-arrow.png" alt=""></h1>
-            <h1 onclick="slideRight()"> <img   class="rightArrow"src="img/next.png" alt=""> </h1>
-          </div>
-          <div class="infoCard">
-          <p class="pCard1"><strong>Height:</strong> ${pokeman.height}</p>
-          <p class="pCard2"><strong>Weight:</strong> ${pokeman.weight}</p>
-          <p class="pCard3"><strong>Type:</strong> ${type}</p>
-          
-          </div>
-          <div class="prograssCard">
-          <p><strong>Stats:</strong></p>
-          <ulclass="listClass" >
-            ${stats
-              .map(
-                (stat) => `
-                <li >
-                   <label for="${stat.statName}"> ${stat.statName}:</label> 
-                  <progress id="${stat.statName}" value="${stat.value}" max="100" class="texts"></progress>
-                </li>`
-              )
-              .join("")}
-          </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
+                  <div class="idAndName">
+                  <b>#${pokeman.id}</b>
+                  <b><strong>${pokeman.name}</strong></b>
+                  <b onclick="closePopup()"class="btnX">Close</b>
+                  </div> 
+                 
+             <div class="cardPopup">
+             <div class="ImgCard">
+                <img class="imgWidth bounce secondImagCard" 
+                  src="${image}" 
+                  alt="${pokeman.name}">
+                  </div>
+                  <div class="infoCard">
+                 <p class="typeInfo">
+                  <small>Type:</small> ${type}
+                </p> 
+                <p class="typeInfo">
+                  <small>Height:</small> ${pokeman.height}
+                </p> 
+                <p class="typeInfo">
+                  <small>Weight:</small> ${pokeman.weight}
+                </p> 
+                </div>
+                <div class="h1lsides">
+                  <h1 onclick="slideLeft()">
+                    <img class="leftArrow" src="img/left-arrow.png" alt="Slide Left">
+                  </h1>
+                  <h1 onclick="slideRight()">
+                    <img class="rightArrow" src="img/next.png" alt="Slide Right">
+                  </h1>
+                </div>
+               
+                
+                <ul class="statsList">
+                  ${statData
+                    .map(
+                      (stat) => `
+                        <li>
+                          <label for="${stat.statName}">${stat.statName}</label>
+                          <progress 
+                            id="${stat.statName}" 
+                            value="${stat.value}" 
+                            max="100"
+                          ></progress>
+                        </li>
+
+
+                      `
+                    )
+                    .join("")}
+                </ul>
+
+
+
+  </div>
+  </div>
+        `;
 }

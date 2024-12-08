@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +9,10 @@ body {
   background-color: #ef5350;
   color: white;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 header {
   background: #ef5350;
@@ -34,6 +39,9 @@ header {
   color: white;
   font-size: 20px;
   cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 #idname {
@@ -47,10 +55,12 @@ header {
   margin: 0;
   padding: 8px;
   border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 .btnX {
   width: fit-content;
-
   cursor: pointer;
   background: transparent;
   color: aliceblue;
@@ -72,6 +82,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 p {
   margin-bottom: 0;
@@ -104,6 +117,8 @@ button {
   cursor: pointer;
   background: #05171e;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 .leftArrow,
 .rightArrow {
@@ -124,7 +139,10 @@ button {
   width: 50%;
   margin: 0 auto;
   border-radius: 8px;
-  height: 600px;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
 }
 .listClass {
   list-style: none;
@@ -136,22 +154,6 @@ p {
   margin-bottom: 0;
 }
 
-@media (max-width: 600px) {
-  .secondCard {
-    width: auto;
-    border-radius: 2px;
-  }
-}
-
-@media (max-width: 600px) {
-  .cardIdName {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    border-radius: 2px;
-  }
-}
 .imgcardOne {
   height: 200px;
   border-radius: 8px;
@@ -161,22 +163,16 @@ p {
 }
 
 .imgWidth {
-  width: 250px;
-
+  width: 150px;
   border-radius: 8px;
   animation-duration: 2s;
   animation-iteration-count: infinite;
   transform-origin: bottom;
 }
-/* .imgWidth:hover {
-  background: hwb(197 2% 88% / 0.855);
-  border-radius: 12px;
-}
- */
 
 .bounce:hover {
   width: 200px;
-  background: #082029;
+  background: #08202911;
   animation-name: bounce;
   animation-timing-function: ease;
 }
@@ -207,11 +203,13 @@ p {
   border-radius: 8px;
   font-size: 12px;
   font-family: monospace;
+  margin: 0;
 }
-.infoCard {
+/* .infoCard {
   width: 100%;
   padding-left: 12px;
-}
+  margin: 0;
+} */
 .pCard1 {
   display: flex;
   justify-content: space-around;
@@ -226,20 +224,7 @@ p {
   display: flex;
   justify-content: space-around;
 }
-.prograssCard {
-  background: #2a9d8f;
-  width: 100%;
-  list-style: none;
-  padding-left: 10px;
-  padding-bottom: 12px;
-  border-radius: 8px;
-}
-li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 38px;
-}
+
 #pokomenContent {
   margin-top: 15px;
   display: flex;
@@ -248,16 +233,136 @@ li {
   flex-wrap: wrap;
   gap: 20px;
 }
+/* 
+.popupCard {
+  position: fixed;
+
+  background: #ef535097;
+  min-width: fit-content;
+  min-height: 100vh;
+  z-index: 99;
+} */
+
+.btnCards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  background: #2a9d8f;
+  border-bottom: 3px solid #082029;
+}
+#moreLoading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: aliceblue;
+  background: transparent;
+  border-radius: 6px;
+  padding: 8px;
+  width: 100%;
+}
+
+li {
+  padding: 0 15px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.statsList {
+  background-color: #2a9d8f;
+  width: auto;
+  padding: 10px;
+  line-height: 1.8;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  color: white;
+
+  line-height: 1.2;
+}
+
+.infoCard {
+  width: 100%;
+  background-color: #070d109a;
+  border-radius: 12px;
+  padding: 0;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+}
+#loadingImg {
+  width: 55px;
+  border-radius: 45%;
+  cursor: pointer;
+}
+
+.secondImagCard {
+  border-radius: 12px;
+  border: 2px solid #082029;
+  cursor: pointer;
+  background: #80bfd64b;
+}
+
+.idAndName {
+  background: #ef5350;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 50%;
+  z-index: 99;
+  position: absolute;
+  top: 0;
+}
 
 .popupCard {
   position: fixed;
   top: 0;
   left: 0;
-  background: #ef535097;
-  min-width: 100%;
-  min-height: 100%;
+  bottom: 0;
+  right: 0;
+  background-color: #ef53505f;
+  min-height: 100vh;
+  width: 100%;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
+.cardPopup {
+  /*  position: fixed;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  right: 0; */
+  padding: 15px 55px;
+  background-color: #05171e;
+  min-height: 100vh;
+  width: 50%;
+  margin: 0 auto;
+  box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
+}
+
+.ImgCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 35px;
+  padding-bottom: 10px;
+}
 /*  Loading Stying */
 .loading {
   display: flex;
@@ -282,9 +387,32 @@ li {
 }
 
 .loading-last {
-  /* Corrected class name */
   z-index: 0;
   visibility: hidden;
+}
+.typeInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 45px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  margin: 0;
+  box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
+}
+ul {
+  padding-inline-start: 0px;
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+  unicode-bidi: isolate;
 }
 
 @keyframes loading {
@@ -292,3 +420,43 @@ li {
     transform: rotate(1turn);
   }
 }
+/*  Popup Card---- */
+
+@media (max-width: 650px) {
+  .cardPopup {
+    width: auto;
+    border-radius: 8px;
+    min-height: 100vh;
+  }
+  .statsList {
+    width: 100%;
+    padding: 5px;
+    margin: 0;
+  }
+  .idAndName {
+    width: 100%;
+  }
+}
+
+/* @media (max-width: 600px) {
+  li {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 35px;
+  }
+} */
+
+/* @media (max-width: 600px) {
+  .cardIdName {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 2px;
+  }
+} */
+
+/* ::-webkit-meter-even-less-good-value ; */
+
+/* General List Styling */
