@@ -1,15 +1,16 @@
-let maxmalPokemon = `https://pokeapi.co/api/v2/pokemon?limit=200`;
+let maxmalPokemon = `https://pokeapi.co/api/v2/pokemon?limit=30`;
 
-let url = `https://pokeapi.co/api/v2/pokemon?limit=18`;
+let url = `https://pokeapi.co/api/v2/pokemon?limit=10`;
 let pokemonContent = document.getElementById("pokomenContent");
 let searchBar = document.getElementById("searchBar");
 let missingElemen = document.getElementById("noFound");
 let loadMore = document.getElementById("moreLoading");
 let pureData = [];
 let offset = 18;
-const limit = 100;
+const limit = 20;
 let currentPokemon = 1;
 const maxPokemonId = 1400;
+let pokeCashe = [];
 
 function init() {
   dataFetch();
@@ -24,6 +25,7 @@ async function dataFetch() {
       response.results.map(async (result, index) => {
         let pokeDetails = await fetch(result.url);
         let pokeData = await pokeDetails.json();
+        const types = pokeData.types;
 
         return {
           Name: result.name,
@@ -60,27 +62,40 @@ let displayPokos = (pokeman) => {
 };
 
 function loadingMore() {
-  loadMore.addEventListener("click", async () => {
-    offset += limit;
-    url = maxmalPokemon;
-    await dataFetch();
-    if (limit == 100) {
-      loadMore.style.display = "none";
-    }
-  });
+  showSpinner();
+  setTimeout(() => {
+    console.log(" Please Waite Just Minite!!");
+    hideSpinner();
+
+    loadMore.addEventListener("click", async () => {
+      offset += limit;
+      url = maxmalPokemon;
+      await dataFetch();
+
+      if (limit == 100) {
+        loadMore.style.display = "none";
+      }
+    });
+  }, 2000);
 }
 
 async function selectCard(id) {
-  try {
+  showSpinner();
+  if (!pokeCashe[id]) {
     currentPokemon = id;
     let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     const resUrl = await fetch(url);
 
     let pokeman = await resUrl.json();
     displayPopup(pokeman);
-  } catch (error) {
-    console.error("Failed to fetch Pokémon details:", error);
+    pokeCashe[id] = pokeman;
+    console.log(pokeCashe);
   }
+
+  displayPopup(pokeCashe[id]);
+  setTimeout(() => {
+    hideSpinner();
+  }, 500);
 }
 
 let displayPopup = (pokeman) => {
@@ -134,4 +149,12 @@ searchBar.addEventListener("keyup", (e) => {
   displayPokos(filterSearch);
 });
 
-init();
+function showSpinner() {
+  const spinner = document.getElementById("loading_spinner");
+  spinner.classList.remove("hidden");
+}
+
+function hideSpinner() {
+  const spinner = document.getElementById("loading_spinner");
+  spinner.classList.add("hidden");
+}

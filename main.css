@@ -30,7 +30,7 @@ header {
   flex-wrap: nowrap;
 }
 
-.pokemon-card {
+.pokemon-card-container {
   align-items: center;
   max-width: 250px;
   border-radius: 5px;
@@ -44,7 +44,7 @@ header {
   font-style: normal;
 }
 
-#idname {
+.pokemon-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,7 +154,7 @@ p {
   margin-bottom: 0;
 }
 
-.imgcardOne {
+.pokemon-image {
   height: 200px;
   border-radius: 8px;
   animation-duration: 2s;
@@ -162,95 +162,6 @@ p {
   transform-origin: bottom;
 }
 
-.imgWidth {
-  width: 150px;
-  border-radius: 8px;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  transform-origin: bottom;
-}
-
-.bounce:hover {
-  width: 200px;
-  background: #08202911;
-  animation-name: bounce;
-  animation-timing-function: ease;
-}
-@keyframes bounce {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-50px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-#noData {
-  text-align: center;
-  font-size: 28;
-}
-#cardColors {
-  color: white;
-  font-size: 24px;
-}
-.typeColor {
-  background: #ffb703;
-  width: fit-content;
-  padding: 2px 5px;
-  border-radius: 8px;
-  font-size: 12px;
-  font-family: monospace;
-  margin: 0;
-}
-/* .infoCard {
-  width: 100%;
-  padding-left: 12px;
-  margin: 0;
-} */
-.pCard1 {
-  display: flex;
-  justify-content: space-around;
-}
-
-.pCard2 {
-  display: flex;
-  justify-content: space-around;
-}
-
-.pCard3 {
-  display: flex;
-  justify-content: space-around;
-}
-
-#pokomenContent {
-  margin-top: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-/* 
-.popupCard {
-  position: fixed;
-
-  background: #ef535097;
-  min-width: fit-content;
-  min-height: 100vh;
-  z-index: 99;
-} */
-
-.btnCards {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  background: #2a9d8f;
-  border-bottom: 3px solid #082029;
-}
 #moreLoading {
   display: flex;
   justify-content: center;
@@ -260,7 +171,10 @@ p {
   background: transparent;
   border-radius: 6px;
   padding: 8px;
-  width: 100%;
+  width: fit-content;
+  background: #082029;
+  border: 3px solid white;
+  border-radius: 8px;
 }
 
 li {
@@ -312,17 +226,17 @@ li {
 }
 
 .idAndName {
-  background: #ef5350;
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
   padding-left: 12px;
   padding-right: 12px;
-  width: 50%;
-  z-index: 99;
+  width: 100%;
+  /* z-index: 99;
   position: absolute;
-  top: 0;
+  top: 0; */
 }
 
 .popupCard {
@@ -343,17 +257,13 @@ li {
 }
 
 .cardPopup {
-  /*  position: fixed;
-  top: 80px;
-  left: 0;
-  bottom: 0;
-  right: 0; */
   padding: 15px 55px;
   background-color: #05171e;
-  min-height: 100vh;
+  height: auto;
   width: 50%;
   margin: 0 auto;
   box-shadow: -2px 0px 6px 0px rgb(0, 0, 0, 0.2);
+  border-radius: 15px;
 }
 
 .ImgCard {
@@ -362,33 +272,6 @@ li {
   align-items: center;
   padding-top: 35px;
   padding-bottom: 10px;
-}
-/*  Loading Stying */
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #05171e url(img/loading2.gif) no-repeat center center;
-  z-index: 1000;
-  background-size: 25%;
-}
-
-.loading::after {
-  content: " ";
-  width: 20px;
-  animation: loading 5s linear infinite;
-  background-size: 10%;
-  border-radius: 50%;
-}
-
-.loading-last {
-  z-index: 0;
-  visibility: hidden;
 }
 .typeInfo {
   display: flex;
@@ -415,11 +298,6 @@ ul {
   unicode-bidi: isolate;
 }
 
-@keyframes loading {
-  to {
-    transform: rotate(1turn);
-  }
-}
 /*  Popup Card---- */
 
 @media (max-width: 650px) {
@@ -438,25 +316,11 @@ ul {
   }
 }
 
-/* @media (max-width: 600px) {
-  li {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 35px;
-  }
-} */
-
-/* @media (max-width: 600px) {
-  .cardIdName {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    border-radius: 2px;
-  }
-} */
-
-/* ::-webkit-meter-even-less-good-value ; */
-
-/* General List Styling */
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+footer {
+  background-color: #04111677;
+}

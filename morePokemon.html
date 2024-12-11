@@ -6,8 +6,7 @@
     <title>MainPokemon</title>
     <link rel="shortcut icon" href="img/pokeball.gif.png" type="image/x-icon" />
     <link rel="stylesheet" href="main.css" />
-    <link rel="stylesheet" href="styles-types.css" />
-    <script src="loadingFunc.js"></script>
+    <script src="scriptTwo.js"></script>
 
     <!-- Bootsrap Links -->
     <link
@@ -22,7 +21,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body onload="init()">
+  <body onload="loadingMore()">
     <header>
       <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
@@ -51,29 +50,12 @@
     <div id="idInfo"></div>
     <div id="statsContainer"></div>
     <div id="evolution-container"></div>
-    <p id="wait"></p>
+    <!-- <a href="/morePokemon.html">
+     </a
+    > -->
+    <button onclick="loadingMore()" id="loadMore">Load More Pokémon</button>
 
-    <div id="loading_spinner" class="spinner hidden">
-      <div class="pokeball">
-        <div class="pokeball-top"></div>
-        <div class="pokeball-bottom"></div>
-        <div class="pokeball-center"></div>
-      </div>
-    </div>
-
-    <button onclick="loadingMore()" id="moreLoading">Loading More ...</button>
-
-    <script src="tamplateHTML.js"></script>
+    <script src="tampHTML.js"></script>
     <script src="main.js"></script>
-    <!--   <img src="img/flame.png" alt="" /> -->
-
-    <footer>
-      <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-          <img src="img/pokeball.gif.png" alt="" id="logo" />
-          <a class="navbar-brand text-white h1">Pokodex</a>
-        </div>
-      </nav>
-    </footer>
   </body>
 </html>
