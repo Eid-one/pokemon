@@ -1,152 +1,3 @@
-/* 
-
-function returnHTMLCard(pokeman) {
-  const getBackgroundColor = (types) => {
-    if (types.includes("fire")) return "#AA4203";
-    if (types.includes("grass")) return "green";
-    if (types.includes("normal")) return "#98d048";
-    if (types.includes("poison")) return "#2a3049";
-    if (types.includes("water")) return "#d4f1f9";
-    if (types.includes("electric")) return "#c1121f";
-    if (types.includes("fighting")) return "#faedcd";
-    if (types.includes("psychic")) return "#6a4c93";
-    if (types.includes("bug")) return "#e9b477";
-    return "gray";
-  };
-
-  const typeString = pokeman.Types.join(" / "); // Join types for display
-
-  return `
-            <div onclick="selectCard(${pokeman.Id})">
-              <div id="idname"> 
-                <p>#${pokeman.Id}</p>
-                <p>${pokeman.Name}</p>  
-              </div>
-              <div 
-                class="pokemon-card" 
-                style="background-color: ${getBackgroundColor(pokeman.Types)};"
-                id="cardColors">
-                <img class="imgcardOne bounce" src="${pokeman.Image}" alt="${
-    pokeman.Nam
-  }">
-                  <p class="typeColor">
-          ${
-            pokeman.Types.includes("fire")
-              ? '<img id="flame" src="img/flame.png" alt="flame">'
-              : ""
-          }
-         
-              
-                </p>
-                <p class="typeColor">
-                  ${
-                    pokeman.Types.includes("grass")
-                      ? '<img id="flame" src="img/grass.png" alt="flame">'
-                      : ""
-                  }
-
-              
-                </p>
-                <p class="typeColor">
-                  ${
-                    pokeman.Types.includes("water")
-                      ? '<img id="flame" src="img/drop.png" alt="flame">'
-                      : ""
-                  }
-             
-                </p>
-                <p class="typeColor">
-                  ${
-                    pokeman.Types.includes("bug")
-                      ? '<img id="flame" src="img/bug-catcher.png" alt="flame">'
-                      : ""
-                  }
-          
-              
-                </p>
-
-                <p class="typeColor">
-           
-
-                  ${
-                    pokeman.Types.includes("poison")
-                      ? '<img id="flame" src="img/potion.png" alt="flame"> '
-                      : " "
-                  }
-                  
-              
-                </p>
-
-               
-                <p class="typeColor">
-           
-
-                  ${
-                    pokeman.Types.includes("electric")
-                      ? '<img id="flame" src="img/flash.png" alt="flame"> '
-                      : " "
-                  }
-                  
-              
-                </p>
-
-               
-                <p class="typeColor">
-           
-
-                  ${
-                    pokeman.Types.includes("psychic")
-                      ? '<img id="flame" src="img/mental.png" alt="flame"> '
-                      : " "
-                  }
-                  
-              
-                </p>
-                <p class="typeColor">
-           
-
-                  ${
-                    pokeman.Types.includes("normal")
-                      ? '<img id="flame" src="img/green-tea.png" alt="flame"> '
-                      : " "
-                  }
-                  
-              
-                </p>
-                <p class="typeColor">
-           
-
-                  ${
-                    pokeman.Types.includes("fight")
-                      ? '<img id="flame" src="img/option.png" alt="flame"> '
-                      : " "
-                  }
-                  
-              
-                </p>
-                </p>
-                <p class="typeColor">
-           
-
-                  ${
-                    pokeman.Types.includes("ground")
-                      ? '<img id="flame" src="img/ground.png" alt="flame"> '
-                      : " "
-                  }
-                  
-              
-                </p>
-
-
-               
-               
-              </div>
-            </div>
-            
-           
-          `;
-} */
-
 function renderTypes() {
   const typeIcons = {
     fire: "flame.png",
@@ -172,66 +23,86 @@ function renderTypes() {
     .join("");
 }
 
+// Helper to get background color by type
+const getBackgroundColor = (types) => {
+  const colors = {
+    fire: "#AA4203",
+    grass: "green",
+    normal: "#98d048",
+    poison: "#2a3049",
+    water: "#d4f1f9",
+    electric: "#c1121f",
+    fighting: "#faedcd",
+    psychic: "#6a4c93",
+    bug: "#e9b477",
+    ground: "#b57f2b",
+    rock: "#8a7f8d",
+    fairy: "#f4b1f4",
+    steel: "#b8b8d0",
+    dark: "#705848",
+    ghost: "#705898",
+    ice: "#51c4e7",
+    dragon: "#7038f8",
+  };
+  return colors[types[0]] || "gray";
+};
+
+// Helper to generate type icon HTML
+const getTypeIcons = (types) => {
+  const icons = {
+    fire: "img/flame.png",
+    grass: "img/grass.png",
+    water: "img/drop.png",
+    bug: "img/bug-catcher.png",
+    poison: "img/potion.png",
+    electric: "img/flash.png",
+    psychic: "img/mental.png",
+    normal: "img/green-tea.png",
+    fight: "img/option.png",
+    ground: "img/ground.png",
+    rock: "img/rock.png",
+    fairy: "img/fairy.png",
+    steel: "img/steel.png",
+    dark: "img/dark.png",
+    ghost: "img/ghost.png",
+    ice: "img/ice.png",
+    dragon: "img/dragon.png",
+  };
+  return types
+    .map((type) =>
+      icons[type]
+        ? `<img class="type-icon" src="${icons[type]}" alt="${type}">`
+        : ""
+    )
+    .join("");
+};
+
+// Create Pokémon card HTML
 function returnHTMLCard(pokeman) {
-  // Helper to get background color by type
-  const getBackgroundColor = (types) => {
-    const colors = {
-      fire: "#AA4203",
-      grass: "green",
-      normal: "#98d048",
-      poison: "#2a3049",
-      water: "#d4f1f9",
-      electric: "#c1121f",
-      fighting: "#faedcd",
-      psychic: "#6a4c93",
-      bug: "#e9b477",
-    };
-    // Return the color of the first type found or default to gray
-    return types.map((type) => colors[type]).find((color) => color) || "gray";
-  };
-
-  // Helper to generate type icon HTML
-  const getTypeIcons = (types) => {
-    const icons = {
-      fire: "img/flame.png",
-      grass: "img/grass.png",
-      water: "img/drop.png",
-      bug: "img/bug-catcher.png",
-      poison: "img/potion.png",
-      electric: "img/flash.png",
-      psychic: "img/mental.png",
-      normal: "img/green-tea.png",
-      fight: "img/option.png",
-      ground: "img/ground.png",
-    };
-    return types
-      .map((type) =>
-        icons[type]
-          ? `<img class="type-icon" src="${icons[type]}" alt="${type}">`
-          : ""
-      )
-      .join("");
-  };
-
-  const typeString = pokeman.Types.join(" / "); // Join types for display
+  const typeString = pokeman.Types.join(" / ");
   const backgroundColor = getBackgroundColor(pokeman.Types);
   const typeIcons = getTypeIcons(pokeman.Types);
 
   return `
-                          <div class="pokemon-card-container" onclick="selectCard(${pokeman.Id})">
-                            <div class="pokemon-header">
-                              <p>#${pokeman.Id}</p>
-                              <p>${pokeman.Name}</p>
-                            </div>
-                            <div class="pokemon-card" style="background-color: ${backgroundColor};">
-                              <img class="pokemon-image bounce" src="${pokeman.Image}" alt="${pokeman.Name}">
-                              <div class="pokemon-types">${typeIcons}</div>
-                            </div>
-                          </div>
-                        `;
+    <div class="pokemon-card-container" onclick="selectCard(${pokeman.Id})">
+      <div class="pokemon-header">
+        <p>#${pokeman.Id}</p>
+        <p>${pokeman.Name}</p>
+       
+      </div>
+      <div class="pokemon-card" style="background-color: ${backgroundColor};">
+        <img class="pokemon-image bounce" src="${pokeman.Image}" alt="${pokeman.Name}">
+      
+        <div class="pokemon-types">${typeIcons}</div>
+      </div>
+    </div>
+  `;
 }
 
-function contentHTMLPopup(pokeman, stattype) {
+function contentHTMLPopup(pokeman, stattype, id) {
+  let abilitytype = pokeman.abilities.map(
+    (abilityInfo) => abilityInfo.ability.name
+  );
   const type = pokeman.types.map((type) => type.type.name).join(", ");
   const image = pokeman.sprites.other["official-artwork"].front_default;
   let statData = pokeman.stats.map((stattype) => ({
@@ -258,17 +129,7 @@ function contentHTMLPopup(pokeman, stattype) {
                   src="${image}" 
                   alt="${pokeman.name}">
                   </div>
-                  <div class="infoCard">
-                 <p class="typeInfo">
-                  <small>Type:</small> ${type}
-                </p> 
-                <p class="typeInfo">
-                  <small>Height:</small> ${pokeman.height}
-                </p> 
-                <p class="typeInfo">
-                  <small>Weight:</small> ${pokeman.weight}
-                </p> 
-                </div>
+                 
                 <div class="h1lsides">
                   <h1 onclick="slideLeft()">
                     <img class="leftArrow" src="img/left-arrow.png" alt="Slide Left">
@@ -277,30 +138,48 @@ function contentHTMLPopup(pokeman, stattype) {
                     <img class="rightArrow" src="img/next.png" alt="Slide Right">
                   </h1>
                 </div>
+                
+                 <button onclick="findOutStatus(${pokeman.id})" id"btn-Stats">Show Stats</button>
+            
+            
+                  <div class="infoCard"   id="status-container" >
+                  <p class="typeInfo">
+                  <small>Type:</small> ${type}
+                </p> 
+                <i class="typeInfo" id ="abilitis">   <small> Abilities:</small> ${abilitytype}</i>
+                <p class="typeInfo">
+                  <small>Height:</small> ${pokeman.height}
+                </p> 
+                <p class="typeInfo">
+                  <small>Weight:</small> ${pokeman.weight}
+                  </p> 
+
+                </div>
+
+
                
                 
-                <ul class="statsList">
-                  ${statData
-                    .map(
-                      (stat) => `
-                        <li>
-                          <label for="${stat.statName}">${stat.statName}</label>
-                          <progress 
-                            id="${stat.statName}" 
-                            value="${stat.value}" 
-                            max="100"
-                          ></progress>
-                        </li>
-
-
-                      `
-                    )
-                    .join("")}
-                </ul>
-
+              
 
 
   </div>
   </div>
         `;
+}
+
+function statusHTMLTemplate(stat) {
+  return `
+     <ul >
+    
+    <li>
+    <label for="${stat.name}">${stat.name}</label>
+    <progress 
+      id="${stat.name}" 
+      value="${stat.value}" 
+      max="100"
+    ></progress>
+  </li>
+  </ul>
+
+`;
 }

@@ -233,3 +233,16 @@
   transform: translate(-50%, -50%);
   z-index: 10;
 }
+
+#abilitis {
+  background: transparent;
+  color: #fff;
+}
+
+#btn-Stats {
+  text-align: right;
+  width: fit-content;
+  margin: 0 2px;
+  background: darkblue;
+  color: white;
+}

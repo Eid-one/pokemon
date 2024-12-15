@@ -1,4 +1,4 @@
-function renderTypes() {
+/* function renderTypes() {
   const typeIcons = {
     fire: "flame.png",
     grass: "grass.png",
@@ -81,3 +81,4 @@ function returnHTMLCard(pokeman) {
                 </div>
               `;
 }
+ */
