@@ -110,66 +110,75 @@ function contentHTMLPopup(pokeman, stattype, id) {
     value: stattype.base_stat,
   }));
 
-  return ` 
-  
-           <div class="popupCard">
-
-                  
-                 
-             <div class="cardPopup">
-             <div class="idAndName">
-                  <b>#${pokeman.id}</b>
-                  <b><strong>${pokeman.name}</strong></b>
-                  <b onclick="closePopup()"class="btnX">Close</b>
-                  </div> 
-
-
-             <div class="ImgCard">
-                <img class="imgWidth bounce secondImagCard" 
-                  src="${image}" 
-                  alt="${pokeman.name}">
-                  </div>
-                 
-                <div class="h1lsides">
-                  <h1 onclick="slideLeft()">
-                    <img class="leftArrow" src="img/left-arrow.png" alt="Slide Left">
-                  </h1>
-                  <h1 onclick="slideRight()">
-                    <img class="rightArrow" src="img/next.png" alt="Slide Right">
-                  </h1>
-                </div>
-                
-                 <button onclick="findOutStatus(${pokeman.id})" id"btn-Stats">Show Stats</button>
-            
-            
-                  <div class="infoCard"   id="status-container" >
-                  <p class="typeInfo">
-                  <small>Type:</small> ${type}
-                </p> 
-                <i class="typeInfo" id ="abilitis">   <small> Abilities:</small> ${abilitytype}</i>
-                <p class="typeInfo">
-                  <small>Height:</small> ${pokeman.height}
-                </p> 
-                <p class="typeInfo">
-                  <small>Weight:</small> ${pokeman.weight}
-                  </p> 
-
-                </div>
-
+  return `
+   
+  <div class="popupCard">
 
                
-                
               
+          <div class="cardPopup">
+          <div class="idAndName">
+               <b>#${pokeman.id}</b>
+               <b><strong>${pokeman.name}</strong></b>
+               <b onclick="closePopup()"class="btnX">Close</b>
+               </div> 
 
 
-  </div>
-  </div>
-        `;
+          <div class="ImgCard">
+             <img class="imgWidth bounce secondImagCard" 
+               src="${image}" 
+               alt="${pokeman.name}">
+               </div>
+              
+             <div class="h1lsides">
+               <h1 onclick="slideLeft()">
+                 <img class="leftArrow" src="img/left-arrow.png" alt="Slide Left">
+               </h1>
+               <h1 onclick="slideRight()">
+                 <img class="rightArrow" src="img/next.png" alt="Slide Right">
+               </h1>
+             </div>
+             
+                        
+        
+             <div class="btn-Buttons"> <button onclick="extraInfo(${pokeman.id})">Show Info</button>
+              <button onclick="findOutStatus(${pokeman.id})" id"btn-Stats">Show Stats</button></div>
+
+               <div id="info-container"></div>
+              <div id="status-container"></div>
+
+       
+              
+              
+ </div>
+       
+
+
+</div>
+</div>
+
+/
+
+`;
 }
-
+/* function informationFunc(abilities, types, pokeman, height, weight) {
+  let abilitytype = pokeman.abilities.map(
+    (abilityInfo) => abilityInfo.ability.name
+  );
+  const type = pokeman.types.map((type) => type.type.name).join(", ");
+  const infoContainer = document.getElementById("info-container");
+  infoContainer.innerHTML = `
+  <div class="hiddencontent " id="infoId">
+      <p><strong>Abilities:</strong> ${abilities}</p>
+      <p><strong>Types:</strong> ${types}</p>
+      <p><small><strong>Height:</strong> ${height}</small></p>
+      <p><small><strong>Weight:</strong> ${weight}</small></p>
+      </div>
+    `;
+} */
 function statusHTMLTemplate(stat) {
   return `
-     <ul >
+     <ul>
     
     <li>
     <label for="${stat.name}">${stat.name}</label>
@@ -182,4 +191,16 @@ function statusHTMLTemplate(stat) {
   </ul>
 
 `;
+}
+
+function informationFunc(abilities, types, height, weight) {
+  // Return the formatted HTML
+  return `
+      <div  id="infoId">
+          <p>Abilities: ${abilities}</p>
+          <p>Types: ${types}</p>
+          <p>Height: ${height}</p>
+          <p>Weight:${weight}</p>
+      </div>
+    `;
 }

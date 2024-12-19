@@ -7,4 +7,3 @@ let windowsTes = window.addEventListener("load", () => {
     });
   }, 4000);
 });
-

@@ -16,9 +16,7 @@ let pokeCashe = [];
 function init() {
   dataFetch();
 }
-/* ${baseUrl}?offset=${offset}&limit=${limit} */
 
-// Fetch Pokémon data from API
 async function dataFetch() {
   let url = `${baseUrl}?offset=${offset}&limit=${limit}`;
   let response = await fetch(url);
@@ -128,7 +126,6 @@ async function findOutStatus(id) {
 
   const dataJson = await response.json();
 
-  // Map stats to a usable format
   const pokemonStatus = dataJson.stats.map((stat) => ({
     name: stat.stat.name,
     value: stat.base_stat,
@@ -142,14 +139,41 @@ function renderStatus(pokemonStatus) {
   container.innerHTML = pokemonStatus
     .map((stat) => statusHTMLTemplate(stat))
     .join("");
+  console.log(container);
 }
 
-function showError(message) {
-  const container = document.getElementById("status-container");
-  container.innerHTML = `<div class="error-message">${message}</div>`;
+/* async function extraInfo(id) {
+  const infoContainer = document.getElementById("info-container");
+
+  infoContainer.innerHTML = informationFunc();
+} */
+
+async function extraInfo(id) {
+  const infoContainer = document.getElementById("status-container");
+
+  try {
+    // Fetch Pokémon data by ID (adjust URL as per your API)
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const pokeman = await response.json();
+
+    // Extract relevant details
+    const abilities = pokeman.abilities
+      .map((abilityInfo) => abilityInfo.ability.name)
+      .join(", ");
+    const types = pokeman.types
+      .map((typeInfo) => typeInfo.type.name)
+      .join(", ");
+    const height = pokeman.height;
+    const weight = pokeman.weight;
+
+    // Update the container with the information
+    infoContainer.innerHTML = informationFunc(abilities, types, height, weight);
+  } catch (error) {
+    console.error("Failed to fetch Pokémon data:", error);
+    infoContainer.innerHTML = `<p>Error loading Pokémon information.</p>`;
+  }
 }
 
-// End Code
 function slideLeft() {
   currentPokemon = currentPokemon > 1 ? currentPokemon - 1 : maxPokemonId;
   selectCard(currentPokemon);
