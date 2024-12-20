@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="styles-types.css" />
     <script src="loadingFunc.js"></script>
+    <script src="script.js"></script>
 
     <!-- Bootsrap Links -->
     <link
@@ -43,39 +44,40 @@
         </div>
       </nav>
     </header>
-    <main>
-      <div id="noFound"></div>
-      <div id="pokemonId"></div>
-      <div id="pokomenContent"></div>
-      <div class="loading"></div>
-      <ul class="listClass"></ul>
-      <div id="idInfo"></div>
-      <div id="statsContainer"></div>
-      <div id="evolution-container"></div>
-      <p id="wait"></p>
 
-      <div id="loading_spinner" class="spinner hidden">
-        <div class="pokeball">
-          <div class="pokeball-top"></div>
-          <div class="pokeball-bottom"></div>
-          <div class="pokeball-center"></div>
-        </div>
+    <div id="noFound"></div>
+    <div id="pokemonId"></div>
+    <div id="pokomenContent"></div>
+    <div class="loading"></div>
+    <ul class="listClass"></ul>
+    <div id="idInfo"></div>
+    <div id="statsContainer"></div>
+    <div id="evolution-container"></div>
+    <p id="wait"></p>
+
+    <div id="loading_spinner" class="spinner hidden">
+      <div class="pokeball">
+        <div class="pokeball-top"></div>
+        <div class="pokeball-bottom"></div>
+        <div class="pokeball-center"></div>
       </div>
+    </div>
 
-      <button onclick="loadingMore()" id="moreLoading">Loading More ...</button>
+    <script src="tamplateHTML.js"></script>
+    <script src="main.js"></script>
+    <!--   <img src="img/flame.png" alt="" /> -->
 
-      <script src="tamplateHTML.js"></script>
-      <script src="main.js"></script>
-      <!--   <img src="img/flame.png" alt="" /> -->
+    <footer class="footer-Section">
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <img src="img/pokeball.gif.png" alt="" id="logo" />
+          <button onclick="loadingMore()" id="moreLoading">
+            Loading More ...
+          </button>
 
-      <footer>
-        <nav class="navbar bg-body-tertiary">
-          <div class="container-fluid">
-            <img src="img/pokeball.gif.png" alt="" id="logo" />
-            <a class="navbar-brand text-white h1">Pokodex</a>
-          </div>
-        </nav>
-      </footer>
-    </main>
+          <a class="navbar-brand text-white h1">Pokodex</a>
+        </div>
+      </nav>
+    </footer>
   </body>
 </html>

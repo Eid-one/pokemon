@@ -80,16 +80,6 @@
   justify-content: space-around;
 }
 
-#pokomenContent {
-  height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
 .btnCards {
   display: flex;
   justify-content: space-around;
@@ -259,7 +249,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #2a9d8f;
+  background: #05171e7d;
   padding: 0 8px;
   border-radius: 12px;
   margin-bottom: 8px;
@@ -292,7 +282,17 @@ ul {
   padding: 0 8px;
 }
 
-/* .hiddencontent {
-  display: none;
+.btn-card {
+  padding: 8px;
+  border-radius: 12px;
 }
- */
+.btn-card:hover {
+  color: #2a9d8f;
+}
+
+.footer-Section {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

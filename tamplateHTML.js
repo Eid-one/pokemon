@@ -16,14 +16,13 @@ function renderTypes() {
     .map(([type, icon]) =>
       pokeman.Types.includes(type)
         ? `<p class="typeColor">
-                           <img id="${type}" src="img/${icon}" alt="${type}">
-                         </p>`
+             <img id="${type}" src="img/${icon}" alt="${type}">
+           </p>`
         : ""
     )
     .join("");
 }
 
-// Helper to get background color by type
 const getBackgroundColor = (types) => {
   const colors = {
     fire: "#AA4203",
@@ -47,7 +46,6 @@ const getBackgroundColor = (types) => {
   return colors[types[0]] || "gray";
 };
 
-// Helper to generate type icon HTML
 const getTypeIcons = (types) => {
   const icons = {
     fire: "img/flame.png",
@@ -77,7 +75,6 @@ const getTypeIcons = (types) => {
     .join("");
 };
 
-// Create Pokémon card HTML
 function returnHTMLCard(pokeman) {
   const typeString = pokeman.Types.join(" / ");
   const backgroundColor = getBackgroundColor(pokeman.Types);
@@ -88,11 +85,9 @@ function returnHTMLCard(pokeman) {
       <div class="pokemon-header">
         <p>#${pokeman.Id}</p>
         <p>${pokeman.Name}</p>
-       
       </div>
       <div class="pokemon-card" style="background-color: ${backgroundColor};">
         <img class="pokemon-image bounce" src="${pokeman.Image}" alt="${pokeman.Name}">
-      
         <div class="pokemon-types">${typeIcons}</div>
       </div>
     </div>
@@ -105,102 +100,62 @@ function contentHTMLPopup(pokeman, stattype, id) {
   );
   const type = pokeman.types.map((type) => type.type.name).join(", ");
   const image = pokeman.sprites.other["official-artwork"].front_default;
+
   let statData = pokeman.stats.map((stattype) => ({
     statName: stattype.stat.name,
     value: stattype.base_stat,
   }));
 
   return `
-   
-  <div class="popupCard">
-
-               
-              
-          <div class="cardPopup">
-          <div class="idAndName">
-               <b>#${pokeman.id}</b>
-               <b><strong>${pokeman.name}</strong></b>
-               <b onclick="closePopup()"class="btnX">Close</b>
-               </div> 
-
-
-          <div class="ImgCard">
-             <img class="imgWidth bounce secondImagCard" 
-               src="${image}" 
-               alt="${pokeman.name}">
-               </div>
-              
-             <div class="h1lsides">
-               <h1 onclick="slideLeft()">
-                 <img class="leftArrow" src="img/left-arrow.png" alt="Slide Left">
-               </h1>
-               <h1 onclick="slideRight()">
-                 <img class="rightArrow" src="img/next.png" alt="Slide Right">
-               </h1>
-             </div>
-             
-                        
-        
-             <div class="btn-Buttons"> <button onclick="extraInfo(${pokeman.id})">Show Info</button>
-              <button onclick="findOutStatus(${pokeman.id})" id"btn-Stats">Show Stats</button></div>
-
-               <div id="info-container"></div>
-              <div id="status-container"></div>
-
-       
-              
-              
- </div>
-       
-
-
-</div>
-</div>
-
-/
-
-`;
-}
-/* function informationFunc(abilities, types, pokeman, height, weight) {
-  let abilitytype = pokeman.abilities.map(
-    (abilityInfo) => abilityInfo.ability.name
-  );
-  const type = pokeman.types.map((type) => type.type.name).join(", ");
-  const infoContainer = document.getElementById("info-container");
-  infoContainer.innerHTML = `
-  <div class="hiddencontent " id="infoId">
-      <p><strong>Abilities:</strong> ${abilities}</p>
-      <p><strong>Types:</strong> ${types}</p>
-      <p><small><strong>Height:</strong> ${height}</small></p>
-      <p><small><strong>Weight:</strong> ${weight}</small></p>
+    <div class="popupCard">
+      <div class="cardPopup">
+        <div class="idAndName">
+          <b>#${pokeman.id}</b>
+          <b><strong>${pokeman.name}</strong></b>
+          <b onclick="closePopup()" class="btnX">Close</b>
+        </div>
+        <div class="ImgCard">
+          <img class="imgWidth bounce secondImagCard" 
+            src="${image}" 
+            alt="${pokeman.name}">
+        </div>
+        <div class="h1lsides">
+          <h1 onclick="slideLeft()">
+            <img class="leftArrow" src="img/left-arrow.png" alt="Slide Left">
+          </h1>
+          <h1 onclick="slideRight()">
+            <img class="rightArrow" src="img/next.png" alt="Slide Right">
+          </h1>
+        </div>
+        <div class="btn-Buttons">
+          <button onclick="extraInfo(${pokeman.id})" class="btn-card">Show Info</button>
+          <button onclick="findOutStatus(${pokeman.id})" id="btn-Stats" class="btn-card">Show Stats</button>
+        </div>
+        <div id="info-container"></div>
+        <div id="status-container"></div>
       </div>
-    `;
-} */
+    </div>
+  `;
+}
+
 function statusHTMLTemplate(stat) {
   return `
-     <ul>
-    
-    <li>
-    <label for="${stat.name}">${stat.name}</label>
-    <progress 
-      id="${stat.name}" 
-      value="${stat.value}" 
-      max="100"
-    ></progress>
-  </li>
-  </ul>
-
-`;
+    <ul>
+      <li>
+        <label for="${stat.name}">${stat.name}</label>
+        <progress id="${stat.name}" value="${stat.value}" max="100"></progress>
+      </li>
+    </ul>
+  `;
 }
 
 function informationFunc(abilities, types, height, weight) {
-  // Return the formatted HTML
   return `
-      <div  id="infoId">
-          <p>Abilities: ${abilities}</p>
-          <p>Types: ${types}</p>
-          <p>Height: ${height}</p>
-          <p>Weight:${weight}</p>
-      </div>
-    `;
+    <div id="infoId">
+      <p>Abilities: ${abilities}</p>
+      <p>Types: ${types}</p>
+      <p>Height: ${height}</p>
+      <p>Weight: ${weight}</p>
+    </div>
+  `;
 }
