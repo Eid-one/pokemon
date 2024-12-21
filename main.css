@@ -10,20 +10,19 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100vh; /* Höchstwahrscheinlichkeit */
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 #pokomenContent {
-  flex: 1;
-  height: 100%;
-
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
+  padding-bottom: 50px;
 }
 
 header {
@@ -31,16 +30,6 @@ header {
 }
 #logo {
   height: 44px;
-}
-
-#pokemonId {
-  height: auto;
-  padding-inline-start: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: nowrap;
 }
 
 .pokemon-card-container {
